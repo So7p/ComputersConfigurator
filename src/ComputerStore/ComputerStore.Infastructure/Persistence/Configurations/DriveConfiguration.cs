@@ -9,11 +9,9 @@ namespace ComputerStore.Infastructure.Persistence.Configurations
         public void Configure(EntityTypeBuilder<Drive> builder)
         {
             builder.HasKey(d => d.Id);
-            builder.Property(d => d.Id).ValueGeneratedOnAdd();
+            builder.Property(d => d.Id).UseIdentityColumn(1, 1).ValueGeneratedOnAdd();
 
-            builder.Property(d => d.DriveType).IsRequired();
-
-            builder.Property(d => d.Value).IsRequired();
+            builder.Property(d => d.MemoryValue).IsRequired();
         }
     }
 }

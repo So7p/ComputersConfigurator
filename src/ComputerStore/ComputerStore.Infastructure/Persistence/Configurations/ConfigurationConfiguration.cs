@@ -9,7 +9,7 @@ namespace ComputerStore.Infastructure.Persistence.Configurations
         public void Configure(EntityTypeBuilder<Configuration> builder)
         {
             builder.HasKey(c => c.Id);
-            builder.Property(c => c.Id).ValueGeneratedOnAdd();
+            builder.Property(c => c.Id).UseIdentityColumn(1, 1).ValueGeneratedOnAdd();
 
             builder.Property(c => c.CpuId).IsRequired();
             builder.Property(c => c.GpuId).IsRequired();

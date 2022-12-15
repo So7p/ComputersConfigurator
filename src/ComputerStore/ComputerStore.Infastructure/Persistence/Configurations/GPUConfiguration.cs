@@ -9,9 +9,9 @@ namespace ComputerStore.Infastructure.Persistence.Configurations
         public void Configure(EntityTypeBuilder<GPU> builder)
         {
             builder.HasKey(g => g.Id);
-            builder.Property(g => g.Id).ValueGeneratedOnAdd();
+            builder.Property(g => g.Id).UseIdentityColumn(1, 1).ValueGeneratedOnAdd();
 
-            builder.Property(g => g.Manufacturer).IsRequired();
+            builder.Property(g => g.GPUManufacturerId).IsRequired();
 
             builder.Property(g => g.Model).HasMaxLength(20).IsRequired();
 

@@ -4,8 +4,10 @@ namespace ComputerStore.Domain.Entities
 {
     public class Drive : BaseEntity
     {
-        public Enums.DriveType DriveType { get; set; }
-        public int Value { get; set; }
+        public int MemoryValue { get; set; }
+
+        public DriveType DriveType { get; set; } = null!;
+        public int DriveTypeId { get; set; }
 
         public ICollection<Configuration> Configurations { get; set; } = null!;
     }

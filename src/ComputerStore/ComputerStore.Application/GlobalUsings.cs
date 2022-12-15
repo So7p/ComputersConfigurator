@@ -1,0 +1,1 @@
+﻿global using DriveType = ComputerStore.Domain.Entities.DriveType;
