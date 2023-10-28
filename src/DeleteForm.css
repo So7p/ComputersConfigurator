@@ -1,0 +1,71 @@
+.delete-form {
+    /* display: none;  */
+    position: absolute;
+    width: 40%;
+    height: 12em;
+    margin-left: 30%;
+    margin-bottom: 5%;
+    background-color: #f8f8f8;
+    border: 1px solid #666;
+    border-radius: 5%;
+    box-shadow: rgba(0, 0, 0, .7) 0 2px 4px;
+    z-index: 100;
+}
+
+.data-components {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 8%;
+}
+
+.single-data-component {
+    justify-content: center !important;
+}
+
+.data-components form {
+    padding: 3% 0;
+}
+
+.id-select {
+    width: 30% !important;
+}
+
+.confirm-delete-button {
+    margin-right: 2% !important;
+    color: #1976d2 !important;
+    border-color: #1976d2 !important;
+}
+
+.confirm-delete-button:hover {
+    background-color: rgba(25, 118, 210, 1) !important; 
+    color: #fff !important;
+    border-color: #fff !important;
+}
+
+.cancel-delete-button {
+    color: red !important;
+    border-color: red !important;
+}
+
+.cancel-delete-button:hover {
+    background-color: rgba(255, 0, 0, 0.479) !important;
+    color: #fff !important;
+    border-color: #fff !important;
+}
+
+h5 {
+    padding-top: 5%;
+}
+
+select {
+    padding: 0.5%;
+    color: #555e68;
+    outline: 0px !important;
+    border-top: 0px !important;
+    border-left: 0px !important;
+    border-right: 0px !important;
+    border-bottom: 1px solid #666;
+}

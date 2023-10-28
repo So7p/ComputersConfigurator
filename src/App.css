@@ -1,0 +1,160 @@
+.App {
+    text-align: center;
+}
+
+.App-logo {
+    height: 40vmin;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+.App-header {
+    background-color: #fff; /*#282c34*/
+    min-height: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* font-size: calc(10px + 2vmin);
+    color: white; */
+}
+
+.App-content {
+    width: 80%;
+    height: auto;
+    margin: 5% auto;
+    text-align: center;
+}
+
+.App-link {
+    color: #61dafb;
+}
+
+h1 {
+    font-size: calc(10px + 2vmin);
+    font-style: normal;
+    color: #333;
+}
+
+h2 {
+    padding-bottom: 1%;
+}
+
+.Header-logo-span {
+    font-size: calc(20px + 2vmin);
+    font-weight: 800;
+    color: #333
+}
+
+/* .Main {
+    width: 90%;
+    margin: auto;
+    min-height: 50vh;
+    background-color: aqua;
+} */
+
+.Tabs {
+    display: flex;
+    justify-content: space-between;
+    width: 25%;
+    margin: auto;
+}
+
+.Tabs > button {
+    font-size: calc(3px + 2vmin);
+    font-weight: 600;
+    color: #333;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.carousel-control-prev {
+    display: none !important;
+    max-height: 3vh;
+}
+
+.carousel-control-next {
+    display: none !important;
+    max-height: 3vh;
+}
+
+.carousel-indicators {
+    justify-content: space-between !important;
+    margin-top: 5% !important;
+    margin-left: 5% !important;
+    margin-right: 5% !important;
+    color: #333 !important;
+}
+
+.carousel-indicators > button {
+    /* margin-bottom: 12% !important; */
+    background-color: #333 !important;
+    height: 5px !important;
+}
+
+.Data-item {
+    margin: 5% auto;
+}
+
+.delete-window-button {
+    background-color: rgba(255, 0, 0, 0.479) !important;
+}
+
+/* .delete-form {
+    width: 40%;
+    height: 12em;
+    background-color: #c4c4c4;
+    border-radius: 5%;
+}
+
+.delete-form form {
+    padding-top: 10%;
+} */
+
+/* .InovuaReactDataGrid {
+    
+} */
+
+/* .InovuaReactDataGrid__header-layout {
+    border: 1px solid #666 !important;
+} */
+
+.InovuaReactDataGrid__column-header__resize-wrapper {
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+    /* border-bottom: 1px solid #666; */
+    /* border: 1px solid #666 !important; */
+}
+
+.InovuaReactDataGrid__column-header__content {
+    text-align: center !important;
+}
+
+.InovuaReactDataGrid__cell {
+    /* border-right: 1px solid #666 !important;
+    border-left: 1px solid #666 !important; */
+    padding-left: 2.5% !important;
+    padding-right: 2.5% !important;
+    border-bottom: 1px solid #c0c0c0 !important;
+}
+
+/* .InovuaReactDataGrid__cell__content {
+    padding-left: 10%;
+    padding-right: 10%;
+} */
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
