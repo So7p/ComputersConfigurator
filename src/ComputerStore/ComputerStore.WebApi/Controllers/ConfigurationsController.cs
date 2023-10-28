@@ -23,7 +23,7 @@ namespace ComputerStore.WebApi.Controllers
             return Ok(await _configurationService.GetAllAsync());
         }
 
-        [HttpGet("{id:int}")]
+        [HttpGet("get-configuration/{id:int}")]
         public async Task<IActionResult> GetByIdAsync([FromRoute] int id)
         {
             var configuration = await _configurationService.GetByIdAsync(id);
@@ -35,6 +35,7 @@ namespace ComputerStore.WebApi.Controllers
         }
 
         [HttpPost]
+        [Route("create-configuration")]
         public async Task<IActionResult> CreateAsync([FromBody] ConfigurationForCreateDto configurationForCreateDto)
         {
             await _configurationService.CreateAsync(configurationForCreateDto);
@@ -43,6 +44,7 @@ namespace ComputerStore.WebApi.Controllers
         }
 
         [HttpPut]
+        [Route("update-configuration")]
         public async Task<IActionResult> UpdateAsync([FromBody] ConfigurationForUpdateDto configurationForUpdateDto)
         {
             await _configurationService.UpdateAsync(configurationForUpdateDto);
@@ -50,12 +52,12 @@ namespace ComputerStore.WebApi.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id:int}")]
+        [HttpDelete("delete-configuration/{id:int}")]
         public async Task<IActionResult> DeleteAsync([FromRoute] int id)
         {
             await _configurationService.DeleteAsync(id);
 
-            return NoContent();
+            return Ok();
         }
     }
 }

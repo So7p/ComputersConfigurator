@@ -13,6 +13,5 @@ namespace ComputerStore.Application.Services.Common
             this.mapper = mapper ?? throw new ArgumentException(nameof(mapper));
             this.unitOfWork = unitOfWork ?? throw new ArgumentException(nameof(unitOfWork));
         }
-
     }
 }

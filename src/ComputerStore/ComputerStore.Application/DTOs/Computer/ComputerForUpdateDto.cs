@@ -2,5 +2,6 @@
 {
     public class ComputerForUpdateDto : ComputerManipulateDto
     {
+        public int Id { get; set; }
     }
 }

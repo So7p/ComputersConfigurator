@@ -10,10 +10,14 @@ namespace ComputerStore.Infastructure.Persistence.UOW
         private readonly IApplicationDbContext _context;
 
         private IComputerRepository _computerRepository;
-
         private IConfigurationRepository _configurationRepository;
-
         private IModelRepository _modelRepository;
+        private ICPURepository _cpuRepository;
+        private IGPURepository _gpuRepository;
+        private IDriveRepository _driveRepository;
+        private IRAMRepository _ramRepository;
+        private IComputerBrandRepository _computerBrandRepository;
+        private IComputerTypeRepository _computerTypeRepository;
 
         public UnitOfWork(IApplicationDbContext context)
         {
@@ -33,6 +37,36 @@ namespace ComputerStore.Infastructure.Persistence.UOW
         public IModelRepository ModelRepository
         {
             get { return _modelRepository ??= new ModelRepository(_context); }
+        }
+
+        public ICPURepository CPURepository 
+        { 
+            get { return _cpuRepository ??= new CPURepository(_context); }
+        }
+
+        public IGPURepository GPURepository
+        {
+            get { return _gpuRepository ??= new GPURepository(_context); }
+        }
+
+        public IDriveRepository DriveRepository
+        {
+            get { return _driveRepository ??= new DriveRepository(_context); }
+        }
+
+        public IRAMRepository RAMRepository
+        {
+            get { return _ramRepository ??= new RAMRepository(_context); }
+        }
+
+        public IComputerBrandRepository ComputerBrandRepository
+        {
+            get { return _computerBrandRepository ??= new ComputerBrandRepository(_context); }
+        }
+
+        public IComputerTypeRepository ComputerTypeRepository
+        {
+            get { return _computerTypeRepository ??= new ComputerTypeRepository(_context); }
         }
     }
 }

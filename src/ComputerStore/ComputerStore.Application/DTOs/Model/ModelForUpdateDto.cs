@@ -2,5 +2,6 @@
 {
     public class ModelForUpdateDto : ModelManipulateDto
     {
+        public int Id { get; set; }
     }
 }

@@ -1,9 +1,6 @@
 ﻿using ComputerStore.Application.Common.Interfaces.Services;
 using ComputerStore.Application.DTOs.Computer;
-using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Text.Json;
 
 namespace ComputerStore.WebApi.Controllers
 {
@@ -27,7 +24,7 @@ namespace ComputerStore.WebApi.Controllers
             return Ok(status);
         }
 
-        [HttpGet("{id:int}")]
+        [HttpGet("get-computer/{id:int}")]
         public async Task<IActionResult> GetByIdAsync([FromRoute] int id)
         {
             var computer = await _computerService.GetByIdAsync(id);
@@ -39,6 +36,7 @@ namespace ComputerStore.WebApi.Controllers
         }
 
         [HttpPost]
+        [Route("create-computer")]
         public async Task<IActionResult> CreateAsync([FromBody] ComputerForCreateDto computerForCreateDto)
         {
             await _computerService.CreateAsync(computerForCreateDto);
@@ -47,19 +45,20 @@ namespace ComputerStore.WebApi.Controllers
         }
 
         [HttpPut]
+        [Route("update-computer")]
         public async Task<IActionResult> UpdateAsync([FromBody] ComputerForUpdateDto computerForUpdateDto)
         {
             await _computerService.UpdateAsync(computerForUpdateDto);
 
-            return NoContent(); //Json
+            return NoContent();
         }
 
-        [HttpDelete("{id:int}")]
+        [HttpDelete("delete-computer/{id:int}")]
         public async Task<IActionResult> DeleteAsync([FromRoute] int id)
         {
             await _computerService.DeleteAsync(id);
 
-            return NoContent();
+            return Ok(); //NoContent();
         }
     }
 }

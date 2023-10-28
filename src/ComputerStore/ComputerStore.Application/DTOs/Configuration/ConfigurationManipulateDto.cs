@@ -2,9 +2,13 @@
 {
     public abstract class ConfigurationManipulateDto
     {
-        public string CPU { get; set; } = null!; // Mapping Manufacturer and Model to presentation table on view (CPU)
-        public string GPU { get; set; } = null!; // Mapping Manufacturer and Model to presentation table on view (GPU)
-        public string RAM { get; set; } = null!; // Mapping Value, Type and Frequenncy to presentation table on view (RAM)
-        public string Drive { get; set; } = null!; // Mapping DriveType and MemoryValue to presentation table on view (Drive)
+        /*public string CPU { get; set; } = null!; 
+        public string GPU { get; set; } = null!; 
+        public string RAM { get; set; } = null!; 
+        public string Drive { get; set; } = null!;*/
+        public int CPUId { get; set; }
+        public int GPUId { get; set; }
+        public int RAMId { get; set; }
+        public int DriveId { get; set; }
     }
 }

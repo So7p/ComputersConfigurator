@@ -14,6 +14,7 @@ namespace ComputerStore.Application.Common.Mappings
 
             CreateMap<ComputerForCreateDto, Computer>();
             CreateMap<ComputerForUpdateDto, Computer>();
+                //.ForMember(dest => dest.ComputerTypeId, opt => opt.MapFrom(src => $"{src.Type}");
         }
     }
 }

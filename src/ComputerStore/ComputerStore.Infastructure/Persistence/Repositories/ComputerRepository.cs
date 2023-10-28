@@ -23,7 +23,6 @@ namespace ComputerStore.Infastructure.Persistence.Repositories
             .AsNoTracking()
             .Include(c => c.Model)
             .Include(c => c.ComputerType)
-            .SingleOrDefaultAsync(e => e.Id == id);
-
+            .FirstOrDefaultAsync(e => e.Id == id);
     }
 }

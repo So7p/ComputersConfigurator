@@ -1,6 +1,5 @@
 ﻿using ComputerStore.Application.Common.Interfaces.Services;
 using ComputerStore.Application.DTOs.Model;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ComputerStore.WebApi.Controllers
@@ -23,7 +22,7 @@ namespace ComputerStore.WebApi.Controllers
             return Ok(await _modelService.GetAllAsync());
         }
 
-        [HttpGet("{id:int}")]
+        [HttpGet("get-model/{id:int}")]
         public async Task<IActionResult> GetByIdAsync([FromRoute] int id)
         {
             var model = await _modelService.GetByIdAsync(id);
@@ -35,6 +34,7 @@ namespace ComputerStore.WebApi.Controllers
         }
 
         [HttpPost]
+        [Route("create-model")]
         public async Task<IActionResult> CreateAsync([FromBody] ModelForCreateDto modelForCreateDto)
         {
             await _modelService.CreateAsync(modelForCreateDto);
@@ -43,6 +43,7 @@ namespace ComputerStore.WebApi.Controllers
         }
 
         [HttpPut]
+        [Route("update-model")]
         public async Task<IActionResult> UpdateAsync([FromBody] ModelForUpdateDto modelForUpdateDto)
         {
             await _modelService.UpdateAsync(modelForUpdateDto);
@@ -50,12 +51,12 @@ namespace ComputerStore.WebApi.Controllers
             return NoContent();
         }
 
-        [HttpDelete("{id:int}")]
+        [HttpDelete("delete-model/{id:int}")]
         public async Task<IActionResult> DeleteAsync([FromRoute] int id)
         {
             await _modelService.DeleteAsync(id);
 
-            return NoContent();
+            return Ok();
         }
     }
 }

@@ -22,7 +22,7 @@ namespace ComputerStore.Infastructure.Persistence.Repositories
         public virtual async Task<TEntity?> GetByIdAsync(int id) =>
             await appContext.Set<TEntity>()
             .AsNoTracking()
-            .SingleOrDefaultAsync(e => e.Id == id);
+            .FirstOrDefaultAsync(e => e.Id == id);
 
         public virtual async Task<TEntity> CreateAsync(TEntity entity)
         {

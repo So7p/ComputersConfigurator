@@ -14,7 +14,6 @@ namespace ComputerStore.Infastructure.Persistence.Repositories
         public override async Task<IEnumerable<Model>> GetAllAsync() =>
             await appContext.Set<Model>()
             .AsNoTracking()
-            //.Include(m => m.Name)
             .Include(m => m.Configuration)
             .Include(m => m.ComputerBrand)
             .ToListAsync();
@@ -22,9 +21,8 @@ namespace ComputerStore.Infastructure.Persistence.Repositories
         public override async Task<Model?> GetByIdAsync(int id) =>
             await appContext.Set<Model>()
             .AsNoTracking()
-            //.Include(m => m.Name)
             .Include(m => m.Configuration)
             .Include(m => m.ComputerBrand)
-            .SingleOrDefaultAsync(e => e.Id == id);
+            .FirstOrDefaultAsync(e => e.Id == id);
     }
 }

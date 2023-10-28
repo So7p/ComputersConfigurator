@@ -5,7 +5,6 @@ using ComputerStore.Application.Common.Interfaces.UOW;
 using ComputerStore.Application.DTOs.Computer;
 using ComputerStore.Application.Services.Common;
 using ComputerStore.Domain.Entities;
-using System.Text.Json;
 
 namespace ComputerStore.Application.Services
 {
@@ -20,17 +19,14 @@ namespace ComputerStore.Application.Services
             var computers = await unitOfWork.ComputerRepository.GetAllAsync();
             var computersDtos = mapper.Map<IEnumerable<ComputerDto>>(computers);
 
-            string fileName = "ComputersRepost.json";
-            using FileStream createStream = File.Create(fileName);
-            string jsonString = JsonSerializer.Serialize(JsonSerializer.Serialize(computersDtos));
-            File.WriteAllText(fileName, jsonString);
-
             return computersDtos;
         }
 
         public async Task<ComputerDto> GetByIdAsync(int id)
         {
-            var computer = await unitOfWork.ComputerRepository.GetByIdAsync(id);
+            var computer = await unitOfWork.ComputerRepository.GetByIdAsync(id)
+                ?? throw new NotFoundException("Computer was not found"); 
+
             var computerDto = mapper.Map<ComputerDto>(computer);
 
             return computerDto;
@@ -51,6 +47,9 @@ namespace ComputerStore.Application.Services
             if(computerForUpdateDto == null)
                 throw new ArgumentNullException(nameof(computerForUpdateDto));
 
+            var existingComputer = await unitOfWork.ComputerRepository.GetByIdAsync(computerForUpdateDto.Id)
+                ?? throw new NotFoundException("Computer was not found");
+
             var computer = mapper.Map<Computer>(computerForUpdateDto);
 
             await unitOfWork.ComputerRepository.UpdateAsync(computer);
@@ -63,6 +62,5 @@ namespace ComputerStore.Application.Services
 
             await unitOfWork.ComputerRepository.DeleteAsync(id);
         }
-
     }
 }

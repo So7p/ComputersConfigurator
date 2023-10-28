@@ -33,7 +33,7 @@ namespace ComputerStore.Infastructure.Persistence.Repositories
             .Include(c => c.RAM)
             .Include(c => c.Drive)
             .Include(c => c.Drive.DriveType)
-            .SingleOrDefaultAsync(c => c.Id == id);
+            .FirstOrDefaultAsync(c => c.Id == id);
 
     }
 }
